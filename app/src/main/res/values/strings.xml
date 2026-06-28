@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Simple Shortcut</string>
+
+    <!-- Home -->
+    <string name="settings">Settings</string>
+    <string name="create_shortcut">Create shortcut</string>
+    <string name="edit_shortcut">Edit shortcut</string>
+    <string name="add_to_home_again">Add to home again</string>
+    <string name="delete">Delete</string>
+    <string name="back">Back</string>
+
+    <!-- Empty state -->
+    <string name="empty_state_title">No shortcuts yet</string>
+    <string name="empty_state_body">Tap + to create your first shortcut and add it to the home screen.</string>
+
+    <!-- Editor -->
+    <string name="shortcut_name">Shortcut name</string>
+    <string name="icon_label">Icon</string>
+    <string name="selected_apps">Selected apps</string>
+    <string name="add_app">Add app</string>
+    <string name="remove">Remove</string>
+    <string name="save_and_add_to_home">Save &amp; Add to Home</string>
+    <string name="update">Update</string>
+
+    <!-- Icon picker -->
+    <string name="pick_icon">Choose an icon</string>
+
+    <!-- App selector -->
+    <string name="search_apps">Search apps…</string>
+    <string name="done">Done</string>
+
+    <!-- Dialog -->
+    <string name="cancel">Cancel</string>
+    <string name="no_apps_available">No apps available.</string>
+
+    <!-- Settings -->
+    <string name="general">General</string>
+    <string name="updates">Updates</string>
+    <string name="about">About</string>
+    <string name="language_system">System default</string>
+    <string name="language_italian">Italiano</string>
+    <string name="language_english">English</string>
+    <string name="check_for_updates">Check for updates</string>
+    <string name="changelog">Changelog</string>
+    <string name="version">Version</string>
+    <string name="close">Close</string>
+
+    <!-- Updater -->
+    <string name="up_to_date">You have the latest version.</string>
+    <string name="update_downloading">Downloading version %1$s…</string>
+    <string name="update_available_no_apk">Version %1$s available — no APK asset found.</string>
+    <string name="update_check_failed">Could not check for updates. Check your connection.</string>
+
+    <!-- Errors -->
+    <string name="error_shortcut_not_found">Shortcut not found.</string>
+    <string name="error_launcher_no_pin">Your launcher does not support pinned shortcuts. Try dragging the shortcut from the app drawer manually.</string>
+</resources>

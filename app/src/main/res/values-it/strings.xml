@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Simple Shortcut</string>
+
+    <!-- Home -->
+    <string name="settings">Impostazioni</string>
+    <string name="create_shortcut">Crea scorciatoia</string>
+    <string name="edit_shortcut">Modifica scorciatoia</string>
+    <string name="add_to_home_again">Aggiungi alla home di nuovo</string>
+    <string name="delete">Elimina</string>
+    <string name="back">Indietro</string>
+
+    <!-- Empty state -->
+    <string name="empty_state_title">Nessuna scorciatoia</string>
+    <string name="empty_state_body">Tocca + per creare la tua prima scorciatoia e aggiungerla alla schermata home.</string>
+
+    <!-- Editor -->
+    <string name="shortcut_name">Nome scorciatoia</string>
+    <string name="icon_label">Icona</string>
+    <string name="selected_apps">App selezionate</string>
+    <string name="add_app">Aggiungi app</string>
+    <string name="remove">Rimuovi</string>
+    <string name="save_and_add_to_home">Salva e aggiungi alla home</string>
+    <string name="update">Aggiorna</string>
+
+    <!-- Icon picker -->
+    <string name="pick_icon">Scegli un\'icona</string>
+
+    <!-- App selector -->
+    <string name="search_apps">Cerca app…</string>
+    <string name="done">Fatto</string>
+
+    <!-- Dialog -->
+    <string name="cancel">Annulla</string>
+    <string name="no_apps_available">Nessuna app disponibile.</string>
+
+    <!-- Settings -->
+    <string name="general">Generale</string>
+    <string name="updates">Aggiornamenti</string>
+    <string name="about">Informazioni</string>
+    <string name="language_system">Predefinito di sistema</string>
+    <string name="language_italian">Italiano</string>
+    <string name="language_english">English</string>
+    <string name="check_for_updates">Controlla aggiornamenti</string>
+    <string name="changelog">Changelog</string>
+    <string name="version">Versione</string>
+    <string name="close">Chiudi</string>
+
+    <!-- Updater -->
+    <string name="up_to_date">Hai già l\'ultima versione.</string>
+    <string name="update_downloading">Download versione %1$s in corso…</string>
+    <string name="update_available_no_apk">Versione %1$s disponibile — APK non trovato negli asset.</string>
+    <string name="update_check_failed">Impossibile verificare gli aggiornamenti. Controlla la connessione.</string>
+
+    <!-- Errors -->
+    <string name="error_shortcut_not_found">Scorciatoia non trovata.</string>
+    <string name="error_launcher_no_pin">Il tuo launcher non supporta le scorciatoie aggiunte. Prova a trascinarla manualmente dal drawer delle app.</string>
+</resources>
