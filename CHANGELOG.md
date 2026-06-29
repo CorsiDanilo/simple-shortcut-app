@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-06-29
+
+### Added
+- **Adaptive Launcher Icon**: Configured fully compliant Material 3 adaptive launcher icon with a dark background and transparent foreground to match launcher shapes and avoid white frames on newer devices.
+
+### Fixed
+- **App Selector Sheet UX**: Refactored the app selection flow to use "Live Selection" which applies changes instantly, removing the confirmation OK/Cancel ambiguity.
+
 ## [1.0.0] - 2026-06-28
 
 ### Added

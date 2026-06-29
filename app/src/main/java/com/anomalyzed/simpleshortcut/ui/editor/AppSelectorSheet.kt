@@ -28,8 +28,8 @@ data class InstalledApp(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppSelectorSheet(
-    alreadySelected: List<String>,
-    onConfirm: (List<String>) -> Unit,
+    selectedPackages: List<String>,
+    onToggle: (String) -> Unit,
     onDismiss: () -> Unit
 ) {
     val context = LocalContext.current
@@ -50,7 +50,6 @@ fun AppSelectorSheet(
     }
 
     var query by remember { mutableStateOf("") }
-    var selected by remember { mutableStateOf(alreadySelected.toList()) }
 
     val filtered = remember(query, allApps) {
         if (query.isBlank()) allApps
@@ -77,7 +76,7 @@ fun AppSelectorSheet(
                 contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp)
             ) {
                 items(filtered, key = { it.packageName }) { app ->
-                    val isChecked = app.packageName in selected
+                    val isChecked = app.packageName in selectedPackages
                     ListItem(
                         headlineContent = { Text(app.label) },
                         leadingContent = {
@@ -93,22 +92,10 @@ fun AppSelectorSheet(
                         trailingContent = {
                             Checkbox(
                                 checked = isChecked,
-                                onCheckedChange = { checked ->
-                                    selected = if (checked) {
-                                        selected + app.packageName
-                                    } else {
-                                        selected - app.packageName
-                                    }
-                                }
+                                onCheckedChange = { _ -> onToggle(app.packageName) }
                             )
                         },
-                        modifier = Modifier.clickable {
-                            selected = if (isChecked) {
-                                selected - app.packageName
-                            } else {
-                                selected + app.packageName
-                            }
-                        }
+                        modifier = Modifier.clickable { onToggle(app.packageName) }
                     )
                     HorizontalDivider()
                 }
@@ -119,13 +106,9 @@ fun AppSelectorSheet(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(16.dp),
-                horizontalArrangement = Arrangement.End
+                horizontalArrangement = Arrangement.Center
             ) {
-                TextButton(onClick = onDismiss) {
-                    Text(stringResource(android.R.string.cancel))
-                }
-                Spacer(Modifier.width(8.dp))
-                Button(onClick = { onConfirm(selected) }) {
+                OutlinedButton(onClick = onDismiss) {
                     Text(stringResource(android.R.string.ok))
                 }
             }

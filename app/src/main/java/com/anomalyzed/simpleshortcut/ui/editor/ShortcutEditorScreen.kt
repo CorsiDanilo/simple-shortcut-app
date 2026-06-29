@@ -236,8 +236,14 @@ fun ShortcutEditorScreen(
 
         if (showAppSelector) {
             AppSelectorSheet(
-                alreadySelected = selectedPackages,
-                onConfirm = { selectedPackages = it },
+                selectedPackages = selectedPackages,
+                onToggle = { pkg ->
+                    selectedPackages = if (pkg in selectedPackages) {
+                        selectedPackages - pkg
+                    } else {
+                        selectedPackages + pkg
+                    }
+                },
                 onDismiss = { showAppSelector = false }
             )
         }
