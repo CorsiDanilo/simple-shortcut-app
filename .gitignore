@@ -33,6 +33,3 @@ build/
 # Keystore
 *.jks
 *.keystore
-
-# Todo
-TODO.md
