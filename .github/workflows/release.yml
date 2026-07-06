@@ -38,12 +38,18 @@ jobs:
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         run: ./gradlew assembleRelease
 
-      - name: Rename APK
+      - name: Build Debug APK
+        run: ./gradlew assembleDebug
+
+      - name: Rename APKs
         run: |
           mv app/build/outputs/apk/release/app-release.apk simple-shortcut-signed.apk
+          cp app/build/outputs/apk/debug/app-debug.apk simple-shortcut-debug.apk
 
       - name: Compute SHA256
-        run: sha256sum simple-shortcut-signed.apk > simple-shortcut-signed.apk.sha256
+        run: |
+          sha256sum simple-shortcut-signed.apk > simple-shortcut-signed.apk.sha256
+          sha256sum simple-shortcut-debug.apk > simple-shortcut-debug.apk.sha256
 
       - name: Extract version from tag
         id: version
@@ -66,5 +72,7 @@ jobs:
           files: |
             simple-shortcut-signed.apk
             simple-shortcut-signed.apk.sha256
+            simple-shortcut-debug.apk
+            simple-shortcut-debug.apk.sha256
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
