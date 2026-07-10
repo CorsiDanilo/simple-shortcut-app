@@ -40,13 +40,21 @@ object UpdateChecker {
             val assets = obj.getJSONArray("assets")
             var apkUrl = ""
             var sha256Url = ""
+            val isDebugApp = BuildConfig.DEBUG
             for (i in 0 until assets.length()) {
                 val asset = assets.getJSONObject(i)
                 val name = asset.getString("name")
                 val url = asset.getString("browser_download_url")
-                when {
-                    name.endsWith(".apk") -> apkUrl = url
-                    name.endsWith(".sha256") -> sha256Url = url
+                val nameMatchesBuildType = if (isDebugApp) {
+                    name.contains("debug", ignoreCase = true)
+                } else {
+                    !name.contains("debug", ignoreCase = true)
+                }
+                if (nameMatchesBuildType) {
+                    when {
+                        name.endsWith(".apk") -> apkUrl = url
+                        name.endsWith(".sha256") -> sha256Url = url
+                    }
                 }
             }
 
@@ -62,12 +70,14 @@ object UpdateChecker {
     }
 
     private fun downloadApk(context: Context, info: UpdateInfo) {
+        val isDebugApp = BuildConfig.DEBUG
+        val destName = if (isDebugApp) "simple-shortcut-debug.apk" else "simple-shortcut-signed.apk"
         val dm = context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
         val request = DownloadManager.Request(Uri.parse(info.apkUrl))
             .setTitle("Simple Shortcut v${info.tagName}")
             .setDescription("Downloading update…")
             .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-            .setDestinationInExternalFilesDir(context, Environment.DIRECTORY_DOWNLOADS, "simple-shortcut-signed.apk")
+            .setDestinationInExternalFilesDir(context, Environment.DIRECTORY_DOWNLOADS, destName)
             .setMimeType("application/vnd.android.package-archive")
         dm.enqueue(request)
     }
